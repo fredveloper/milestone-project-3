@@ -1,0 +1,18 @@
+<html>
+<head>
+
+</head>
+
+<body>
+    {% for recipe in recipes %}
+        {{recipe.category_name}}
+        {{recipe.recipe_name}}
+        {{recipe.recipe_description}}
+        {{recipe.ingredients}}
+        {{recipe.preparation_method}}
+        {{recipe.difficulty}}
+        {{recipe.recipe_image}}
+        {{recipe.recipe_rating}}
+    {% endfor %}
+</body>
+</html>
