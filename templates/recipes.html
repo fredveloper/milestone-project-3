@@ -1,18 +1,56 @@
-<html>
-<head>
+{% extends 'base.html' %}
+{% block content %}
+    
 
-</head>
+    <section id="recipes-section">
 
-<body>
-    {% for recipe in recipes %}
-        {{recipe.category_name}}
-        {{recipe.recipe_name}}
-        {{recipe.recipe_description}}
-        {{recipe.ingredients}}
-        {{recipe.preparation_method}}
-        {{recipe.difficulty}}
-        {{recipe.recipe_image}}
-        {{recipe.recipe_rating}}
-    {% endfor %}
-</body>
-</html>
+    
+    <div class="container-fluid">
+      <div class="row content-block">
+      
+        <div class="col-md-12">
+          <h1 class="">Cocktails</h1>
+        </div>
+        {% for recipe in recipes %}
+        <div class="container">
+          <div class="card-deck">
+            <div class="card">
+              <img src="static/images/martini.jpg" class="card-img-top" alt="cocktail-picture">
+              <div class="card-body">
+                <h5 class="card-title">{{recipe.recipe_name}}</h5>
+                <p>{{recipe.recipe_description}}</p>
+              </div>
+              <div class="card-body">
+                <a href="" class="btn btn-primary float-right">See More</a>
+              </div>
+            </div>
+            <div class="card">
+              <img src="static/images/martini.jpg" class="card-img-top" alt="cocktail-picture">
+              <div class="card-body">
+                <h5 class="card-title">{{recipe.recipe_name}}</h5>
+                <p>{{recipe.recipe_description}}</p>
+              </div>
+              <div class="card-body">
+                <a href="" class="btn btn-primary float-right">See More</a>
+              </div>
+            </div>
+            <div class="card">
+              <img src="static/images/martini.jpg" class="card-img-top" alt="cocktail-picture">
+              <div class="card-body">
+                <h5 class="card-title">{{recipe.recipe_name}}</h5>
+                <p>{{recipe.recipe_description}}</p>
+              </div>
+              <div class="card-body">
+                <a href="" class="btn btn-primary float-right">See More</a>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+  </section>
+
+{% endblock %}
