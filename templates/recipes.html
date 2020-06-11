@@ -1,7 +1,5 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
     
-
     <section id="recipes-section">
 
     
@@ -18,27 +16,7 @@
               <img src="static/images/martini.jpg" class="card-img-top" alt="cocktail-picture">
               <div class="card-body">
                 <h5 class="card-title">{{recipe.recipe_name}}</h5>
-                <p>{{recipe.recipe_description}}</p>
-              </div>
-              <div class="card-body">
-                <a href="" class="btn btn-primary float-right">See More</a>
-              </div>
-            </div>
-            <div class="card">
-              <img src="static/images/martini.jpg" class="card-img-top" alt="cocktail-picture">
-              <div class="card-body">
-                <h5 class="card-title">{{recipe.recipe_name}}</h5>
-                <p>{{recipe.recipe_description}}</p>
-              </div>
-              <div class="card-body">
-                <a href="" class="btn btn-primary float-right">See More</a>
-              </div>
-            </div>
-            <div class="card">
-              <img src="static/images/martini.jpg" class="card-img-top" alt="cocktail-picture">
-              <div class="card-body">
-                <h5 class="card-title">{{recipe.recipe_name}}</h5>
-                <p>{{recipe.recipe_description}}</p>
+                <p class="card-text">{{recipe.recipe_description}}</p>
               </div>
               <div class="card-body">
                 <a href="" class="btn btn-primary float-right">See More</a>
