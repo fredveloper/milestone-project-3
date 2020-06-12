@@ -3,13 +3,36 @@
 <h3>Add Recipe</h3>
 <div class="container">
   <div class="row">
-    <form action="" method="POST" class="col-sm-12">
+    <form
+      action="{{ url_for('insert_recipe') }}"
+      method="POST"
+      class="col-sm-12"
+    >
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <i class="fas fa-hand-point-right fa-2x prefix"></i>
+          <select id="category" name="category_name" class="custom-select">
+            <option value="" disabled selected>Choose a Category</option>
+            {% for category in categories %}
+            <option value="{{category.category_name}}"
+              >{{category.category_name}}</option
+            >
+            {% endfor %}
+          </select>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-12">
           <div class="md-form">
             <i class="fas fa-cocktail fa-2x prefix"></i>
-            <input id="recipe_name" name="recipe_name" type="text" class="form-control" required/>
-            <label for="recipe_name">Recipe Name</label>
+            <input
+              id="recipe_name"
+              name="recipe_name"
+              type="text"
+              class="form-control"
+              required
+            />
+            <label>Recipe Name</label>
           </div>
         </div>
       </div>
@@ -17,87 +40,124 @@
         <div class="col-md-12">
           <div class="md-form">
             <i class="fas fa-edit fa-2x prefix"></i>
-            <textarea id="recipe_description" name="recipe_description" class="md-textarea form-control" rows="3"></textarea>
+            <textarea
+              id="recipe_description"
+              name="recipe_description"
+              class="md-textarea form-control"
+              rows="3"
+            ></textarea>
             <label>Recipe Description</label>
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-md-12">
           <div class="md-form">
             <i class="fas fa-clipboard-list fa-2x prefix"></i>
-          <textarea
-            id="ingredients"
-            name="ingredients"
-            class="md-textarea form-control" rows="3"
-          ></textarea>
-          <label>Ingredients</label>
+            <textarea
+              id="ingredients"
+              name="ingredients"
+              class="md-textarea form-control"
+              rows="3"
+            ></textarea>
+            <label>Ingredients</label>
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-md-12">
           <div class="md-form">
             <i class="fas fa-list-ol fa-2x prefix"></i>
-          <textarea
-            id="preparation_method"
-            name="preparation_method"
-            class="md-textarea form-control" rows="3"
-          ></textarea>
-          <label>Method</label>
+            <textarea
+              id="preparation_method"
+              name="preparation_method"
+              class="md-textarea form-control"
+              rows="3"
+            ></textarea>
+            <label>Method</label>
           </div>
         </div>
       </div>
-
-      
-
       <div class="row">
         <div class="col-md-12">
-            <i class="fab fa-algolia fa-2x prefix"></i>
-            <label>Difficulty</label>
-            <div class="form-check">
-            <input class="form-check-input" type="radio" name="rad_difficulty" id="difficulty_easy" value="Easy" checked/>
+          <i class="fab fa-algolia fa-2x prefix"></i>
+          <label>Difficulty</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="rad_difficulty"
+              id="difficulty_easy"
+              value="Easy"
+              checked
+            />
             <label class="form-check-label" for="exampleRadios1">
               Easy
             </label>
           </div>
-
-          
-            <div class="form-check">
-              <input
-                class="form-check-input" type="radio" name="rad_difficulty" id="difficulty_medium" value="Medium"/>
-              <label class="form-check-label" for="exampleRadios2">Medium
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="rad_difficulty" id="difficulty_difficult" value="Difficult"/>
-              <label class="form-check-label" for="exampleRadios3">Difficult
-              </label>
-            </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="rad_difficulty"
+              id="difficulty_medium"
+              value="Medium"
+            />
+            <label class="form-check-label" for="exampleRadios2">Medium </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="rad_difficulty"
+              id="difficulty_difficult"
+              value="Difficult"
+            />
+            <label class="form-check-label" for="exampleRadios3"
+              >Difficult
+            </label>
+          </div>
         </div>
       </div>
-
-      <div class="btn-group" data-toggle="buttons">
-
-      <label class="btn btn-primary active form-check-label">
-        <input class="form-check-input" type="radio" checked autocomplete="off"> Easy
-      </label>
-
-      <label class="btn btn-primary form-check-label">
-        <input class="form-check-input" type="radio" autocomplete="off"> Medium
-      </label>
-
-      <label class="btn btn-primary form-check-label">
-        <input class="form-check-input" type="radio" autocomplete="off"> Difficult
-      </label>
-
-    </div>
-
-      
+      <div class="row">
+        <div class="col-md-12">
+          <div class="md-form">
+            <i class="far fa-images fa-2x prefix"></i>
+            <input
+              id="recipe_image"
+              name="recipe_image"
+              type="text"
+              class="form-control"
+              required
+            />
+            <label>Enter Image URL</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="custom-control custom-switch">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              id="is_recommended"
+              name="is_recommended"
+            />
+            <label class="custom-control-label" for="is_recommended"
+              >Recommended</label
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary">
+            Add Recipe
+            <i class="fas fa-plus-circle"></i>
+          </button>
+        </div>
+      </div>
+      {% endblock %}
     </form>
   </div>
 </div>
-
-{% endblock %}
