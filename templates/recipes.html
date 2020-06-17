@@ -1,39 +1,81 @@
 {% extends 'base.html' %} {% block content %}
-    
-    <section id="recipes-section">
 
-    
-    <div class="container-fluid">
-      <div class="row content-block">
-      
-        <div class="col-md-12">
-          <h1 class="">Cocktails</h1>
-        </div>
-        
-        <div class="container">
+<section id="recipes-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="">Cocktails</h1>
+      </div>
+
+      <div class="container">
         <div class="row">
-        {% for recipe in recipes %}
-          <div class="col-md-3">
-            <div class="card">
-              <img src="static/images/martini.jpg" class="card-img-top" alt="cocktail-picture">
-              <div class="card-body">
-                <h5 class="card-title">{{recipe.recipe_name}}</h5>
-                <p class="card-text">{{recipe.recipe_description}}</p>
-              </div>
-              <div class="card-body">
-                <a href="" class="btn btn-primary float-right">See More</a>
+          {% for recipe in recipes %}
+          <div class="col-md-3 card-container">
+            <!-- Card Flip -->
+            <div class="card-flip">
+              <div class="flip">
+                <div class="front">
+                  <!-- front content -->
+                  <div class="card">
+                    <img
+                      src="{{recipe.recipe_image}}"
+                      class="card-img-top"
+                      height="300px"
+                      alt="cocktail-picture"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">{{recipe.recipe_name}}</h5>
+                      <h6 class="card-title">Category: {{recipe.category_name}}</h6>
+                      <h6 class="card-title">Difficulty: {{recipe.difficulty}}</h6>
+                      <!-- <h6 class="card-title">Rating: {{recipe.recipe_rating}}</h6> -->
+                    </div>
+                    <div class="card-body text-center">
+                      <a class="btn btn-primary flip-button"
+                        ><i class="fas fa-redo fa-lg"></i> View Recipe</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="back">
+                  <!-- back content -->
+                  <div class="card">
+                    <div class="card-body text-justify">
+                      <h4 class="card-title text-center">
+                        {{recipe.recipe_name}}
+                      </h4>
+
+                      <p class="card-text">{{recipe.recipe_description}}</p>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Ingredients:</h5>
+                      <p class="card-text">{{recipe.ingredients}}</p>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Method:</h5>
+                      <p class="card-text">{{recipe.preparation_method}}</p>
+                    </div>
+                    <div class="card-body text-center">
+                      <a href="" class="btn btn-primary"><i class="fas fa-pencil-alt fa-lg"></i> Edit</a>
+                      <a href="" class="btn btn-primary"><i class="fas fa-trash fa-lg"></i> Delete</a>
+                    </div>
+                    <div class="card-body">
+                      <a class="btn btn-primary float-left flip-button"
+                        ><i class="fas fa-undo fa-lg"></i> Go Back</a
+                      >
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <br><br>
+            <br /><br />
           </div>
-       
+
           {% endfor %}
         </div>
       </div>
-        
-      </div>
     </div>
-    
-  </section>
+  </div>
+</section>
 
 {% endblock %}
