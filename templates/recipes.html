@@ -27,10 +27,9 @@
                       <h5 class="card-title">{{recipe.recipe_name}}</h5>
                       <h6 class="card-title">Category: {{recipe.category_name}}</h6>
                       <h6 class="card-title">Difficulty: {{recipe.difficulty}}</h6>
-                      <!-- <h6 class="card-title">Rating: {{recipe.recipe_rating}}</h6> -->
                     </div>
                     <div class="card-body text-center">
-                      <a class="btn btn-primary flip-button"
+                      <a class="btn btn-primary btn-block btn-sm flip-button"
                         ><i class="fas fa-redo fa-lg"></i> View Recipe</a
                       >
                     </div>
@@ -56,11 +55,11 @@
                       <p class="card-text">{{recipe.preparation_method}}</p>
                     </div>
                     <div class="card-body text-center">
-                      <a href="" class="btn btn-primary"><i class="fas fa-pencil-alt fa-lg"></i> Edit</a>
-                      <a href="" class="btn btn-primary"><i class="fas fa-trash fa-lg"></i> Delete</a>
+                      <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt fa-lg"></i> Edit</a>
+                      <a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash fa-lg"></i> Delete</a>
                     </div>
                     <div class="card-body">
-                      <a class="btn btn-primary float-left flip-button"
+                      <a class="btn btn-primary float-left btn-block btn-sm flip-button"
                         ><i class="fas fa-undo fa-lg"></i> Go Back</a
                       >
                     </div>
