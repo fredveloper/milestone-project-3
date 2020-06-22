@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 
-<h3>Edit Category</h3>
 <div class="container">
+<div class="container-header">
+    <h1>Edit Category</h1>
+  </div>
   <div class="row">
     <form
       action="{{ url_for('update_category', category_id=category._id) }}"
