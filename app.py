@@ -22,6 +22,14 @@ def get_recipes():
     return render_template('recipes.html', recipes = recipe_list)
 
 
+@app.route('/search', methods=['POST'])
+def search():
+    search_data = dict(request.form)
+    recipe_name = search_data["search"]
+    mongo_data = mongo.db.recipes.find({"recipe_name": recipe_name})
+    return render_template("recipes.html", recipes=mongo_data, names=mongo.db.recipes.find())
+
+
 @app.route('/add_recipe')
 def add_recipe():
     return render_template('addrecipe.html',

@@ -11,17 +11,48 @@ body {
     background-size: cover;
 }
 
-/*----------Headings, Text, Buttons----------*/
+/*----------Headings----------*/
 
 h1,
 h2 {
     font-family: "Lobster", sans-serif;
 }
 
-.container-header{
+.container-heading{
     margin-top: 80px;
     margin-bottom: 60px;
     text-align: center;
+}
+
+/*----------Forms----------*/
+
+.form {
+    background: rgba(255,255,255,0.5);
+    border-radius: 1em;
+}
+
+.md-form .prefix.active {
+    color: #33b5e5;
+}
+
+.md-form input[type=text]:not(.browser-default):focus:not([readonly])+label {
+    color: #33b5e5;
+}
+
+.md-form input[type=text]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #33b5e5;
+            box-shadow: 0 1px 0 0 #33b5e5;
+            /* color: #33b5e5; */
+}
+
+.md-form textarea.md-textarea:focus:not([readonly])+label {
+    color: #33b5e5;
+}
+
+.md-form textarea.md-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #33b5e5;
+            box-shadow: 0 1px 0 0 #33b5e5;
+            /* color: #33b5e5; */
 }
 
 /*---------- Cards ----------*/
