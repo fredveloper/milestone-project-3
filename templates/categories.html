@@ -4,59 +4,59 @@
   <div class="container-fluid">
     <div class="row">
       <div class="container">
-      <div class="container-heading">
-    <h1>Categories</h1>
-  </div>
-        <div class="">
+        <div class="container-heading">
+          <h1>Categories</h1>
+        </div>
+        <div class="row d-flex justify-content-center">
           {% for category in categories %}
-
-          <div class="card categories col-md-12">
-            <div class="row">
-              <div class="card-body col-md-8">
-                <h5 class="card-title">
-                  <i class="fas fa-chevron-circle-right"></i> {{category.category_name}}
-                </h5>
-              </div>
-              <div class="card-body col-md-4 text-right">
-                <a href="{{url_for('edit_category', category_id = category._id)}}" class="btn btn-success btn-sm"
-                  ><i class="fas fa-pencil-alt fa-lg"></i> Edit</a
-                >
-                <a href="{{url_for('delete_category', category_id = category._id)}}" class="btn btn-sm btn-danger"
-                  ><i class="fas fa-trash fa-lg"></i> Delete</a
-                >
-              </div>
-            </div>
+          <div class="col-md-8">
+            <table class="table table-sm table-responsive-md btn-table">
+              <tbody>
+                <tr>
+                  <td>{{category.category_name}}</td>
+                  <td>
+                    <a
+                      href="{{url_for('edit_category', category_id = category._id)}}"
+                      class="btn btn-success btn-sm"
+                      ><i class="fas fa-pencil-alt fa-lg"></i> Edit</a
+                    >
+                  </td>
+                  <td>
+                    <a
+                      href="{{url_for('delete_category', category_id = category._id)}}"
+                      class="btn btn-sm btn-danger"
+                      ><i class="fas fa-trash fa-lg"></i> Delete</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <br>         
           {% endfor %}
         </div>
         <div class="row">
-        <div class="col-md-12 text-center mb-3">
-          <a
-            href="{{ url_for('add_category') }}"
-            class="btn btn-info btn-sm"
-          >
-            <i class="fas fa-plus-circle"></i> Add Category
-          </a>
+          <div class="col-md-12 text-center mb-5">
+            <a href="{{ url_for('add_category') }}" class="btn btn-info btn-sm">
+              <i class="fas fa-plus-circle"></i> Add Category
+            </a>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
 </section>
 
-{% endblock %}
-
-{% block footer %}
+{% endblock %} {% block footer %}
 <!-- Footer -->
-    <footer class="page-footer font-small aqua-gradient">
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">
-        © 2020 Copyright:
-        <a href="https://github.com/fredveloper" target="_blank">
-    <i class="fab fa-github"></i> Jose Mota
+<footer class="page-footer font-small aqua-gradient">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">
+    © 2020 Copyright:
+    <a href="https://github.com/fredveloper" target="_blank">
+      <i class="fab fa-github"></i> Jose Mota
     </a>
-      <!-- Copyright -->
-    </footer>
+  </div>
+  <!-- Copyright -->
+</footer>
 <!-- Footer -->
 {% endblock %}

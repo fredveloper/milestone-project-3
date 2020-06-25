@@ -13,25 +13,18 @@
 				<div class="d-flex justify-content-center">
 					<form action="/search" method="POST" class="form-inline md-form mb-4">
 							<input list="names" class="form-control mr-sm-2" name="search" type="text" placeholder="Search recipe by name" aria-label="Search" autocomplete="off" required>
-                            <!-- <input list="names" type="search" name="search" placeholder="search recipe name" class="search" autocomplete="off" required/> -->
-    
-							<!-- <datalist id="names">
-								{% for recipe in names %}
-								<option value="{{recipe.recipe_name}}"></option>
-								{% endfor %}
-							</datalist> -->
                             <button class="btn btn-info btn-rounded btn-sm my-0" type="submit">Search</button>
 					</form>
 				</div>  
 
 				<div class="row">
 					{% for recipe in recipes %}
-					<div class="col-md-3 card-container">
+					<div class="col-md-4 card-container">
 						<!-- Card Flip -->
 						<div class="card-flip">
 							<div class="flip">
 								<div class="front">
-									<!-- front content -->
+									<!-- Front Content -->
 									<div class="card">
 										<img
                       src="{{recipe.recipe_image}}"
@@ -41,20 +34,21 @@
                     />
 										<div class="card-body">
 											<h5 class="card-title">{{recipe.recipe_name}}</h5>
-											<h6 class="card-title">Category: {{recipe.category_name}}</h6>
-											<h6 class="card-title">Difficulty: {{recipe.difficulty}}</h6>
+											<p class="card-text"><b>Category:</b> {{recipe.category_name}}</p>
+											<p class="card-text"><b>Difficulty:</b> {{recipe.difficulty}}</p>
 										</div>
 										<div class="card-body text-center">
 											<a class="btn btn-info btn-block btn-sm flip-button"><i class="fas fa-redo fa-lg"></i>
 												View Recipe</a>
 										</div>
 									</div>
+                                    <!-- Front Content -->
 								</div>
 
 								<div class="back">
-									<!-- back content -->
+									<!-- Back Content -->
 									<div class="card">
-										<div class="card-body text-justify">
+										<div class="card-body">
 											<h4 class="card-title text-center">
 												{{recipe.recipe_name}}
 											</h4>
@@ -82,10 +76,11 @@
 												Go Back</a>
 										</div>
 									</div>
+                                    <!-- Back Content -->
 								</div>
 							</div>
 						</div>
-						<br /><br />
+						<!-- Card Flip -->
           </div>
 
 						{% endfor %}
@@ -99,7 +94,7 @@
 
 {% block footer %}
 <!-- Footer -->
-    <footer class="page-footer font-small aqua-gradient">
+    <footer class="page-footer font-medium aqua-gradient">
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3">
         © 2020 Copyright:

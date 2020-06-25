@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster:100,200,300,400,500,600,700|Roboto:100,200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster:100,200,300,400,500,600,700|Ubuntu:100,200,300,400,500,600,700&display=swap');
 
 
 html {
@@ -7,28 +7,57 @@ html {
 }
 
 body {
-    background-image: url("https://images.unsplash.com/photo-1501769214405-5e5ee5125a02?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1598&q=80");
+    background-image: linear-gradient(to bottom, rgba(51, 181,229, 0.52), rgba(255, 209, 148, 0.73)),
+    url('https://images.unsplash.com/photo-1541320729316-d1b75cf6e2e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1491&q=80');
     background-size: cover;
+    background-attachment:fixed;
+    height: 100%;
+    font-family: "Ubuntu", sans-serif;
 }
 
-/*----------Headings----------*/
+/*---------- Headings ----------*/
 
 h1,
-h2 {
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: "Lobster", sans-serif;
+    text-align: center;
 }
 
 .container-heading{
     margin-top: 80px;
     margin-bottom: 60px;
-    text-align: center;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.8);
+    color: #fff;
 }
 
-/*----------Forms----------*/
+.navbar, .navbar-brand, footer.page-footer {
+    font-family: "Lobster", sans-serif;
+    font-size: 1.4rem; 
+}
+
+.navbar-brand:hover, .nav-item>a:hover {
+    color: #FFF!important;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.8);
+}
+
+footer.page-footer a:hover {
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.8);
+}
+
+/*---------- Forms / Table ----------*/
 
 .form {
-    background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.8);
     border-radius: 1em;
+}
+
+.md-form label{
+    font-weight: 400;
+    color: #000;
 }
 
 .md-form .prefix.active {
@@ -55,14 +84,55 @@ h2 {
             /* color: #33b5e5; */
 }
 
+.table {
+    background: rgba(255,255,255,0.7);
+    border-radius: 1rem;
+}
+
+table td {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.table td, .table th {
+    border-top: 0;
+    border-radius: 1rem;
+}
+
+table.table.btn-table td {
+    text-align: center;
+}
+
+.btn {
+    border-radius: 0.5rem;
+}
+
+.btn-sm {
+    font-size: 0.7rem !important;
+}
+
 /*---------- Cards ----------*/
+
+p.card-text {
+    margin-bottom: 0.5rem;
+}
 
 .card {
     height: 450px;
+    border-radius: 0.5rem;
+}
+
+.card-img, .card-img-top {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
 }
 
 .card.categories{
     height: 65px !important;
+}
+
+.wrapper {
+    text-align: center;
 }
 
 .card-flip {
@@ -77,7 +147,7 @@ h2 {
 .front,
 .back {
   width: 100%;
-  height: 430px;
+  height: 480px;
 }
 
 .flip {
@@ -103,10 +173,6 @@ h2 {
   transform: rotateY(180deg);
 }
 
-.card .card-body .card-text {
-font-size: 0.7rem;
-}
-
 .card-title {
     margin-bottom: 0.5rem;
 }
@@ -114,3 +180,11 @@ font-size: 0.7rem;
 .card-body {
     padding: 0.6rem;
 }
+
+.card .card-body .card-text {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #000;
+    text-align: justify !important;
+}
+
