@@ -1,140 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css"
-      integrity="sha256-KQdYqU6VCGR+nLjpUSijAJcK1iIlMp8ro5UAMwPj1eI="
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://kit.fontawesome.com/b3b3485f71.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>The Cocktail Book</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css')}}"
-      type="text/css"
-    />
-  </head>
-  <body>
-    <header>
-      <!--Navbar -->
-      <nav class="mb-1 navbar navbar-expand-lg navbar-dark aqua-gradient">
-        <a class="navbar-brand" href="{{url_for('get_recipes')}}"
-          >The Cocktail Book</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent-4"
-          aria-controls="navbarSupportedContent-4"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('get_recipes')}}">
-                <i class="fas fa-cocktail"></i> Recipes
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('add_recipe')}}">
-                <i class="fas fa-plus-circle"></i> Add Recipe</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('get_categories')}}">
-                <i class="far fa-list-alt"></i> Categories
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('get_recipes')}}">
-                <i class="fas fa-search"></i> Search
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="navbarDropdownMenuLink-4"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i class="fas fa-lightbulb"></i> Start Mixing!</a
-              >
-              <div
-                class="dropdown-menu dropdown-menu-right dropdown-info"
-                aria-labelledby="navbarDropdownMenuLink-4"
-              >
-                <a
-                  class="dropdown-item"
-                  href="https://www.amazon.co.uk/s?k=bartender&i=stripbooks&ref=nb_sb_noss_2"
-                  target="_blank"
-                  ><i class="fas fa-book"></i> Bartender Books</a
-                >
-                <a
-                  class="dropdown-item"
-                  href="https://www.amazon.co.uk/s?k=Mixology+Bartender+Kit&ref=nb_sb_noss"
-                  target="_blank"
-                  ><i class="fas fa-glass-martini-alt"></i> Barware Tools</a
-                >
-                <a
-                  class="dropdown-item"
-                  href="https://www.barschool.net/ie"
-                  target="_blank"
-                  ><i class="fas fa-user-graduate"></i> Bartender School</a
-                >
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!--/.Navbar -->
-    </header>
-
-    <!-- Page content-->
-    {% block content %} {% endblock %}
-    
-    <!-- Footer -->
-    {% block footer %} {% endblock %}
-    
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"
-      integrity="sha256-ceh+E9ndu1tLx17aGb31ooyunz+deX74ohRrNQqZIYQ="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      $(".card-flip .flip .flip-button").click(function () {
-        $(this).closest(".card-flip").toggleClass("hover");
-        $(this).css("transform, rotateY(180deg)");
-      });
-    </script>
-  </body>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+         rel="stylesheet"
+         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+         crossorigin="anonymous"
+         />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css"
+         integrity="sha256-KQdYqU6VCGR+nLjpUSijAJcK1iIlMp8ro5UAMwPj1eI="
+         crossorigin="anonymous"
+         />
+      <script
+         src="https://kit.fontawesome.com/b3b3485f71.js"
+         crossorigin="anonymous"
+         ></script>
+      <title>The Cocktail Book</title>
+      <link
+         rel="stylesheet"
+         href="{{ url_for('static', filename='css/style.css')}}"
+         type="text/css"
+         />
+   </head>
+   <body>
+      <header>
+         <!--Navbar -->
+         <nav class="mb-1 navbar navbar-expand-lg navbar-dark aqua-gradient">
+            <a class="navbar-brand" href="{{url_for('get_recipes')}}"
+               >The Land of Cocktails</a
+               >
+            <button
+               class="navbar-toggler"
+               type="button"
+               data-toggle="collapse"
+               data-target="#navbarSupportedContent-4"
+               aria-controls="navbarSupportedContent-4"
+               aria-expanded="false"
+               aria-label="Toggle navigation"
+               >
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{url_for('get_recipes')}}">
+                     <i class="fas fa-cocktail"></i> Recipes
+                     <span class="sr-only">(current)</span>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{url_for('add_recipe')}}">
+                     <i class="fas fa-plus-circle"></i> Add Recipe</a
+                        >
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{url_for('get_categories')}}">
+                     <i class="far fa-list-alt"></i> Categories
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{url_for('get_recipes')}}">
+                     <i class="fas fa-search"></i> Search
+                     </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a
+                        class="nav-link dropdown-toggle"
+                        id="navbarDropdownMenuLink-4"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        >
+                     <i class="fas fa-lightbulb"></i> Start Mixing!</a
+                        >
+                     <div
+                        class="dropdown-menu dropdown-menu-right dropdown-info"
+                        aria-labelledby="navbarDropdownMenuLink-4"
+                        >
+                        <a
+                           class="dropdown-item"
+                           href="https://www.amazon.co.uk/s?k=bartender&i=stripbooks&ref=nb_sb_noss_2"
+                           target="_blank"
+                           ><i class="fas fa-book"></i> Bartender Books</a
+                           >
+                        <a
+                           class="dropdown-item"
+                           href="https://www.amazon.co.uk/s?k=Mixology+Bartender+Kit&ref=nb_sb_noss"
+                           target="_blank"
+                           ><i class="fas fa-glass-martini-alt"></i> Barware Tools</a
+                           >
+                        <a
+                           class="dropdown-item"
+                           href="https://www.barschool.net/ie"
+                           target="_blank"
+                           ><i class="fas fa-user-graduate"></i> Bartender School</a
+                           >
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+         <!--/.Navbar -->
+      </header>
+      <!-- Page content-->
+      {% block content %} {% endblock %}
+      <!-- Footer -->
+      {% block footer %} {% endblock %}
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+         crossorigin="anonymous"
+         ></script>
+      <script
+         src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+         crossorigin="anonymous"
+         ></script>
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"
+         integrity="sha256-ceh+E9ndu1tLx17aGb31ooyunz+deX74ohRrNQqZIYQ="
+         crossorigin="anonymous"
+         ></script>
+      <script>
+         $(".card-flip .flip .flip-button").click(function () {
+           $(this).closest(".card-flip").toggleClass("hover");
+           $(this).css("transform, rotateY(180deg)");
+         });
+      </script>
+   </body>
 </html>

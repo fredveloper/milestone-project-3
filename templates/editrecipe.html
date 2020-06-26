@@ -1,156 +1,159 @@
 {% extends 'base.html' %} {% block content %}
-
-<div class="container">
-    <div class="container-heading">
-    <h1>Edit Recipe</h1>
-  </div>
-  <div class="row">
-    <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col-md-12 form mb-5">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="md-form">
-            <i class="fas fa-cocktail fa-lg prefix"></i>
-            <input
-              id="recipe_name"
-              name="recipe_name"
-              type="text"
-              class="form-control"
-              value="{{recipe.recipe_name}}"
-              required
-            />
-            <label>Recipe Name</label>
-          </div>
-        </div>
-        <div class="col-md-6 form-group">
-          <div class="md-form">
-            <select id="category" name="category_name" class="custom-select" required>
-              <option value="" disabled selected>Choose a Category</option>
-              {% for category in categories %} {% if category.category_name ==
-              recipe.category_name %}
-              <option value="{{category.category_name}}" selected
-                >{{category.category_name}}</option
-              >
-              {% else %}
-              <option value="{{category.category_name}}"
-                >{{category.category_name}}</option
-              >
-              {% endif %} {% endfor %}
-            </select>
-          </div>
-        </div>
+<div class="container-fluid">
+<div class="row">
+   <div class="container">
+      <div class="container-heading">
+         <h1>Edit Recipe</h1>
       </div>
       <div class="row">
-        <div class="col-md-12">
-          <div class="md-form">
-            <i class="fas fa-edit fa-lg prefix"></i>
-            <textarea
-              id="recipe_description"
-              name="recipe_description"
-              class="md-textarea form-control"
-              rows="3"
-              required
-            >
-{{recipe.recipe_description}}</textarea
-            >
-            <label>Recipe Description</label>
-          </div>
-        </div>
+         <!-- Form -->
+         <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col-md-12 form mb-5">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="md-form">
+                     <i class="fas fa-cocktail fa-lg prefix"></i>
+                     <input
+                        id="recipe_name"
+                        name="recipe_name"
+                        type="text"
+                        class="form-control"
+                        value="{{recipe.recipe_name}}"
+                        required
+                        />
+                     <label>Recipe Name</label>
+                  </div>
+               </div>
+               <div class="col-md-6 form-group">
+                  <div class="md-form">
+                     <select id="category" name="category_name" class="custom-select" required>
+                        <option value="" disabled selected>Choose a Category</option>
+                        {% for category in categories %} {% if category.category_name ==
+                        recipe.category_name %}
+                        <option value="{{category.category_name}}" selected
+                           >{{category.category_name}}</option
+                           >
+                        {% else %}
+                        <option value="{{category.category_name}}"
+                           >{{category.category_name}}</option
+                           >
+                        {% endif %} {% endfor %}
+                     </select>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="md-form">
+                     <i class="fas fa-edit fa-lg prefix"></i>
+                     <textarea
+                        id="recipe_description"
+                        name="recipe_description"
+                        class="md-textarea form-control"
+                        rows="3"
+                        required
+                        >
+                     {{recipe.recipe_description}}</textarea
+                        >
+                     <label>Recipe Description</label>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="md-form">
+                     <i class="fas fa-clipboard-list fa-lg prefix"></i>
+                     <textarea
+                        id="ingredients"
+                        name="ingredients"
+                        class="md-textarea form-control"
+                        rows="3"
+                        required
+                        >
+                     {{recipe.ingredients}}</textarea
+                        >
+                     <label>Ingredients</label>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="md-form">
+                     <i class="fas fa-list-ol fa-lg prefix"></i>
+                     <textarea
+                        id="preparation_method"
+                        name="preparation_method"
+                        class="md-textarea form-control"
+                        rows="3"
+                        required
+                        >
+                     {{recipe.preparation_method}}</textarea
+                        >
+                     <label>Preparation Method</label>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="md-form">
+                     <i class="fab fa-algolia fa-lg prefix"></i>
+                     <input
+                        id="difficulty"
+                        name="difficulty"
+                        type="text"
+                        class="form-control"
+                        value="{{recipe.difficulty}}"
+                        required
+                        />
+                     <label>Difficulty (Easy, Medium, Hard):</label>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="md-form">
+                     <i class="far fa-images fa-lg prefix"></i>
+                     <input
+                        id="recipe_image"
+                        name="recipe_image"
+                        type="text"
+                        class="form-control"
+                        value="{{recipe.recipe_image}}"
+                        required
+                        />
+                     <label>Enter Image URL</label>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12 text-center mb-3">
+                  <button type="submit" class="btn btn-info btn-sm">
+                  <i class="fas fa-plus-circle"></i> Edit Recipe
+                  </button>
+                  <a
+                     href="{{ url_for('get_recipes') }}"
+                     class="btn btn-outline-info btn-sm"
+                     >
+                  <i class="fas fa-times-circle"></i> Cancel
+                  </a>
+               </div>
+            </div>
+         </form>
+         <!-- Form -->
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="md-form">
-            <i class="fas fa-clipboard-list fa-lg prefix"></i>
-            <textarea
-              id="ingredients"
-              name="ingredients"
-              class="md-textarea form-control"
-              rows="3"
-              required
-            >
-{{recipe.ingredients}}</textarea
-            >
-            <label>Ingredients</label>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="md-form">
-            <i class="fas fa-list-ol fa-lg prefix"></i>
-            <textarea
-              id="preparation_method"
-              name="preparation_method"
-              class="md-textarea form-control"
-              rows="3"
-              required
-            >
-{{recipe.preparation_method}}</textarea
-            >
-            <label>Preparation Method</label>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="md-form">
-            <i class="fab fa-algolia fa-lg prefix"></i>
-            <input
-              id="difficulty"
-              name="difficulty"
-              type="text"
-              class="form-control"
-              value="{{recipe.difficulty}}"
-              required
-            />
-            <label>Difficulty (Easy, Medium, Hard):</label>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="md-form">
-            <i class="far fa-images fa-lg prefix"></i>
-            <input
-              id="recipe_image"
-              name="recipe_image"
-              type="text"
-              class="form-control"
-              value="{{recipe.recipe_image}}"
-              required
-            />
-            <label>Enter Image URL</label>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 text-center mb-3">
-          <button type="submit" class="btn btn-info btn-sm">
-            <i class="fas fa-plus-circle"></i> Edit Recipe
-          </button>
-          <a
-            href="{{ url_for('get_recipes') }}"
-            class="btn btn-outline-info btn-sm"
-          >
-            <i class="fas fa-times-circle"></i> Cancel
-          </a>
-        </div>
-      </div>
-      
-    </form>
-  </div>
+   </div>
 </div>
 {% endblock %}
-
 {% block footer %}
 <!-- Footer -->
-    <footer class="page-footer font-small aqua-gradient">
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">
-        © 2020 Copyright:
-        <a href="https://github.com/fredveloper" target="_blank">
-    <i class="fab fa-github"></i> Jose Mota
-    </a>
-      <!-- Copyright -->
-    </footer>
+<footer class="page-footer font-small aqua-gradient">
+   <!-- Copyright -->
+   <div class="footer-copyright text-center py-3">
+      © 2020 Copyright:
+      <a href="https://github.com/fredveloper" target="_blank">
+      <i class="fab fa-github"></i> Jose Mota
+      </a>
+   </div>
+   <!-- Copyright -->
+</footer>
 <!-- Footer -->
 {% endblock %}
