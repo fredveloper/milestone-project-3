@@ -50,6 +50,17 @@ footer.page-footer a:hover {
 
 /*---------- Forms / Table ----------*/
 
+.btn-search{
+    padding: 0.75rem 2rem;
+    margin: 0;
+}
+
+.form-search {
+    background: rgba(255,255,255,0.8);
+    border-radius: 0.5rem;
+    padding: 0.3rem 1rem;
+}
+
 .form {
     background: rgba(255,255,255,0.8);
     border-radius: 1em;
@@ -70,8 +81,7 @@ footer.page-footer a:hover {
 
 .md-form input[type=text]:not(.browser-default):focus:not([readonly]) {
     border-bottom: 1px solid #33b5e5;
-            box-shadow: 0 1px 0 0 #33b5e5;
-            /* color: #33b5e5; */
+    box-shadow: 0 1px 0 0 #33b5e5;
 }
 
 .md-form textarea.md-textarea:focus:not([readonly])+label {
@@ -80,8 +90,7 @@ footer.page-footer a:hover {
 
 .md-form textarea.md-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #33b5e5;
-            box-shadow: 0 1px 0 0 #33b5e5;
-            /* color: #33b5e5; */
+    box-shadow: 0 1px 0 0 #33b5e5;
 }
 
 .table {
@@ -129,10 +138,6 @@ p.card-text {
 
 .card.categories{
     height: 65px !important;
-}
-
-.wrapper {
-    text-align: center;
 }
 
 .card-flip {
@@ -188,3 +193,11 @@ p.card-text {
     text-align: justify !important;
 }
 
+@media only screen and (max-width: 600px) {
+    form {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .form-search {
+    text-align-last: center;
+}
