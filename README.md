@@ -10,6 +10,8 @@ The main functionalities of the website include:
 - Adding, editing and deleting cocktail categories.
 - Find information related to bartending field and also purchase products/services.
 
+![Responsive Design](https://github.com/fredveloper/milestone-project-3/master/doc/responsive_design.JPG)
+
 ## UX
 
 My goal in the design was to create a fresh, dynamic, responsive and user-friendly website, where all cocktail lovers could come together to share their recipes.
